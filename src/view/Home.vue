@@ -160,6 +160,24 @@
 											<span>￥{{items.price*num}}×{{personnum}}</span>
 											<span>￥{{items.price*num*personnum}}</span>
 										</div>
+										<div class="way">
+											<div class="ways">
+												<input type="radio" name="echck" value="wechat" checked class="input_check1" id="checks1" v-model="checkedValue">
+												<label class="label_check1" for="checks1"></label>
+												<img src="img/wechat.png">
+												<span>微信支付</span>
+											</div>
+											<div class="ways">
+												<input type="radio" name="echck" value="alipay" class="input_check2" id="checks2" v-model="checkedValue">
+												<label class="label_check2" for="checks2"></label>
+												<img src="img/alipay.png">
+												<span>支付宝</span>
+												<a>推荐</a>
+											</div>
+										</div>
+										<div class="ofsure">
+											<button @click="pay($event)">确认支付</button>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -376,10 +394,15 @@ export default {
 			items:[],
 			num:1,
 			attr:[],
-			personnum:0
+			personnum:0,
+			checkedValue:''
 		}
 	},
 	methods:{
+		pay:function(e){
+			var thar = this;
+			alert(thar.items.price*thar.num*thar.personnum+','+thar.checkedValue);
+		},
 		doimgsure:function(e,id){
 			var thar = this;
 			var change = true;
@@ -704,8 +727,21 @@ ul li{list-style-type: none;}
 #check span {position: relative;}
 #check .input_check+label.label_check {display: inline-block;width: 20px;height: 20px;background: url('/img/sure.png') no-repeat;background-position: -31px -3px;position: absolute;top: 0;left: 28px;}
 #check .input_check:checked+label.label_check {background-position: -2px 0px;}
-.sure .suremain .total{padding: 0px 40px;margin-top: -20px;}
+.sure .suremain .total{padding: 0px 40px;margin-top: -20px;height: auto;}
 .sure .suremain .total span{width: 50%;}
 .sure .suremain .total span:nth-child(1){color: #969696;font-size: 25px;float: left;}
 .sure .suremain .total span:nth-child(2){color: #bb0e57;font-size: 35px;float: right;text-align: right;}
+.way{clear: both;padding:0 10px;margin-top: -30px;display: inline-block;width: 92%;}
+.way .ways:nth-child(1){width: 45%;float: left;} 
+.way .ways:nth-child(2){width: 55%;float: left;} 
+.way .ways:nth-child(2) img{margin-left: 30px;}
+.way .ways img{vertical-align: middle;margin:0 5px;margin-left: 30px;}
+.way .input_check1,.way .input_check2 {position: absolute;width: 15px;height: 15px;visibility: hidden;background: #E92333;}
+.way .input_check1+label.label_check1{display: inline-block;width: 15px;height: 15px;background: url('/img/sure.png') no-repeat;background-position: -40px -3px;position: absolute;bottom: 57px;left: 15px;border:1px solid #ff0267;border-radius: 50%;cursor: pointer;}
+.way .input_check2+label.label_check2 {display: inline-block;width: 15px;height: 15px;background: url('/img/sure.png') no-repeat;background-position: -40px -3px;position: absolute;bottom: 57px;left: 140px;border:1px solid #ff0267;border-radius: 50%;cursor: pointer;}
+.way .input_check1:checked+label.label_check1,.way .input_check2:checked+label.label_check2 {background-position: 0px 0px;}
+.way .ways span{color: #fff;font-size: 14px;}
+.way .ways a{color: #fff;background: #00aaee;font-size: 12px;padding: 0px 7px;border-radius: 10px;text-align: right;margin-left: 5px;}
+.ofsure{clear:both;height: 40px;margin-top: -45px;}
+.ofsure button{clear:both;width: 80%;padding:0 10px;background: #ff0267;color: #fff;height: 30px;line-height: 30px;border:none;outline: none;border-radius: 5px;margin: 0 auto;display: block;cursor: pointer;}
 </style>
