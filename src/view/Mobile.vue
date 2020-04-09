@@ -5,7 +5,7 @@
 			<img src="img/logo.png">
 		</div>
 		<div class="ban">
-			<video muted id='videomv' class="video-js vjs-default-skin" controls allowfullscreen="true">
+			<video id='videomv' class="video-js vjs-default-skin" controls allowfullscreen="true">
 	            <source :src="video">    
 	        </video>
 		</div>
@@ -386,10 +386,7 @@ export default {
 		}
 	},
 	mounted(){
-		setTimeout(function(){
-			var player = videojs('videomv', {}, function(){})
-			player.play();
-		}, 500);
+		
 	},
 	created(){
 		this.getVideo();
@@ -488,7 +485,7 @@ input::-webkit-input-placeholder{padding-top: 5px;line-height: normal;}
 .sure .suremain .close{position: absolute;right: 10px;top: 10px;cursor:pointer;}
 .sure .suremain p{color: #fff;text-align: center;font-size: 18px;letter-spacing: 6px;height: 60px;line-height: 60px;}
 .sure .suremain ul{padding:0 10px;height: 320px;overflow: auto;}
-.sure .suremain ul li{width: 33.33%;text-align: center;background: none;height: auto;float: left;line-height: 50px;position: relative;}
+.sure .suremain ul li{margin-top:10px;width: 33.33%;text-align: center;background: none;height: 80px;float: left;line-height: 80px;position: relative;}
 .sure .suremain ul li:hover{background: none;}
 .sure .suremain ul li img.head{width: 40px;height: auto;margin:0 auto;display: block;cursor: pointer;}
 .sure .suremain ul li span.span{margin-top: -10px;display: block;color: #fff;font-size: 14px ! important;margin-right: 0 ! important;}
