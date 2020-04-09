@@ -56,7 +56,7 @@
 					</div>
 				</div>
 				<div class="acenter">
-					<video id='videomv' class="video-js vjs-default-skin" controls allowfullscreen="true">
+					<video muted id='videomv' class="video-js vjs-default-skin" controls allowfullscreen="true">
 			            <source :src="video">    
 			        </video>
 			        <vue-baberrage
@@ -70,7 +70,6 @@
 							<img src="img/share.png">
 							<img src="img/phone.png">
 							<img src="img/full.png" @click="fullscreen">
-							<img :src="playshow==0?'img/play.png':'img/pause.png'" @click="playvideo($event)">
 						</div>
 						<div class="right">
 							<img class="img" src="img/msg.png" @click="promsy">
