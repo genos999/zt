@@ -8,7 +8,7 @@
 				<div class="title">排行榜</div>
 				<div class="aleft">
 					<div class="tab">
-						<span v-for="(t,i) in tab" :key='i' v-text="t" @click="act=i+1"></span>
+						<span v-for="(t,i) in tab" :key='i' v-text="t" @click="act=i+1" :class="act==i+1?'active':''"></span>
 					</div>
 					<div class="tabCon">
 						<div v-if="act==1" v-cloak>
@@ -643,8 +643,9 @@ ul li{list-style-type: none;}
 #main .cent .rank .title{text-align: center;background:#cbcbcb;height: 50px;line-height: 50px;font-size: 18px;letter-spacing: 2px;}
 #main .cent .rank .tab{width: 90%;margin: 0 auto;height: 50px;line-height: 50px;}
 #main .cent .rank .tab span{font-size:16px;width: 33.33%;text-align: center;display: block;float: left;cursor: pointer;}
-#main .cent .rank .tab span:nth-child(1){text-align: left;}
-#main .cent .rank .tab span:nth-child(3){text-align: right;}
+/*#main .cent .rank .tab span:nth-child(1){text-align: left;}*/
+/*#main .cent .rank .tab span:nth-child(3){text-align: right;}*/
+#main .cent .rank .tab span.active{background:#dfebf1;}
 #main .cent .rank .tabCon{width: 90%;margin: 0 auto;}
 #main .cent .rank .aleft{background:#fff;}
 #main .cent .rank .aleft ul li{overflow: hidden;font-size: 14px;background: #dfebf1;height: 40px;line-height: 40px;margin: 10px 0;}

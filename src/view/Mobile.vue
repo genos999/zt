@@ -494,7 +494,7 @@ input::-webkit-input-placeholder{padding-top: 5px;line-height: normal;}
 #check span {position: relative;}
 #check .input_check+label.label_check {display: inline-block;width: 20px;height: 20px;background: url('/img/sure.png') no-repeat;background-position: -31px -3px;position: absolute;top: 0;left: 28px;}
 #check .input_check:checked+label.label_check {background-position: -2px 0px;}
-.sure .suremain .total{padding: 0px 40px;margin-top: -10px;height: auto;}
+.sure .suremain .total{padding: 0px 40px;margin-top: 10px;height: auto;}
 .sure .suremain .total span{width: 50%;}
 .sure .suremain .total span:nth-child(1){color: #969696;font-size: 25px;float: left;}
 .sure .suremain .total span:nth-child(2){color: #bb0e57;font-size: 35px;float: right;text-align: right;}
@@ -504,8 +504,8 @@ input::-webkit-input-placeholder{padding-top: 5px;line-height: normal;}
 .way .ways:nth-child(2) img{margin-left: 90px;}
 .way .ways img{vertical-align: middle;margin:0 5px;margin-left: 80px;}
 .way .input_check1,.way .input_check2 {position: absolute;width: 15px;height: 15px;visibility: hidden;background: #E92333;}
-.way .input_check1+label.label_check1{display: inline-block;width: 20px;height: 20px;background: url('/img/sure.png') no-repeat;background-position: -30px 0px;position: absolute;bottom: 100px;left: 55px;border:1px solid #ff0267;border-radius: 50%;cursor: pointer;}
-.way .input_check2+label.label_check2 {display: inline-block;width: 20px;height: 20px;background: url('/img/sure.png') no-repeat;background-position: -40px -3px;position: absolute;bottom: 100px;left: 280px;border:1px solid #ff0267;border-radius: 50%;cursor: pointer;}
+.way .input_check1+label.label_check1{display: inline-block;width: 20px;height: 20px;background: url('/img/sure.png') no-repeat;background-position: -30px 0px;position: absolute;bottom: 85px;left: 55px;border:1px solid #ff0267;border-radius: 50%;cursor: pointer;}
+.way .input_check2+label.label_check2 {display: inline-block;width: 20px;height: 20px;background: url('/img/sure.png') no-repeat;background-position: -40px -3px;position: absolute;bottom: 85px;left: 280px;border:1px solid #ff0267;border-radius: 50%;cursor: pointer;}
 .way .input_check1:checked+label.label_check1,.way .input_check2:checked+label.label_check2 {background-position: 0px 0px;}
 .way .ways span{color: #fff;font-size: 16px;}
 .way .ways a{color: #fff;background: #00aaee;font-size: 12px;padding: 0px 7px;border-radius: 10px;text-align: right;margin-left: 5px;}
