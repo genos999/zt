@@ -5,7 +5,7 @@
 			<img src="img/logo.png">
 		</div>
 		<div class="ban">
-			<video id='videomv' class="video-js vjs-default-skin" controls allowfullscreen="true">
+			<video muted id='videomv' class="video-js vjs-default-skin" controls allowfullscreen="true">
 	            <source :src="video">    
 	        </video>
 		</div>
@@ -194,7 +194,7 @@ export default {
 	  		gifshow:1,
 	  		postmer:false,
 	  		sure:false,
-	  		video:'http://ivi.bupt.edu.cn/hls/cctv1hd.m3u8',
+	  		video:'',
 	  		text:'',
 	  		zan:false,
 	  		emot:false,
@@ -203,74 +203,93 @@ export default {
 			attr:[],
 			personnum:0,
 			checkedValue:'',
-	  		guest:[
-				{ico:'img/icon.png',name:'北京导管室主任',pri:'108E币'},
-				{ico:'img/icon.png',name:'北京导管室主任',pri:'109E币'},
-				{ico:'img/icon.png',name:'北京导管室主任',pri:'102E币'},
-				{ico:'img/icon.png',name:'北京导管室主任',pri:'10E币'},
-				{ico:'img/icon.png',name:'北京导管室主任',pri:'98E币'},
-				{ico:'img/icon.png',name:'北京导管室主任',pri:'138E币'},
-				{ico:'img/icon.png',name:'北京导管室主任',pri:'128E币'},
-				{ico:'img/icon.png',name:'北京导管室主任',pri:'77E币'},
-				{ico:'img/icon.png',name:'北京导管室主任',pri:'13E币'},
-				{ico:'img/icon.png',name:'北京导管室主任',pri:'68E币'}
-			],
-			gifs1:[
-				{icon:'img/gif_01.png',name:'救护车',price:10},
-				{icon:'img/gif_02.png',name:'口罩',price:11},
-				{icon:'img/gif_03.png',name:'眼罩',price:12},
-				{icon:'img/gif_04.png',name:'羽蛇神',price:13},
-				{icon:'img/gif_05.png',name:'小蓝瓶',price:14},
-				{icon:'img/gif_01.png',name:'救护车',price:15},
-			],
-			gifs2:[
-				{icon:'img/gif_01.png',name:'救护车',price:20},
-				{icon:'img/gif_01.png',name:'救护车',price:30},
-				{icon:'img/gif_01.png',name:'救护车',price:40},
-				{icon:'img/gif_01.png',name:'救护车',price:50},
-				{icon:'img/gif_01.png',name:'救护车',price:60},
-				{icon:'img/gif_01.png',name:'救护车',price:70},
-			],
-			gifs3:[
-				{icon:'img/gif_01.png',name:'救护车',price:10},
-				{icon:'img/gif_01.png',name:'救护车',price:10},
-				{icon:'img/gif_01.png',name:'救护车',price:10},
-				{icon:'img/gif_01.png',name:'救护车',price:10},
-				{icon:'img/gif_01.png',name:'救护车',price:10},
-				{icon:'img/gif_01.png',name:'救护车',price:10},
-			],
-			emoticon:[
-				{icon:'img/emoticon/爱慕.png'},
-				{icon:'img/emoticon/安慰.png'},
-				{icon:'img/emoticon/悲泣.png'},
-				{icon:'img/emoticon/不会吧.png'},
-				{icon:'img/emoticon/财主.png'},
-				{icon:'img/emoticon/大笑.png'},
-				{icon:'img/emoticon/呆若木鸡.png'},
-				{icon:'img/emoticon/飞吻.png'},
-				{icon:'img/emoticon/尴尬.png'},
-				{icon:'img/emoticon/害羞.png'},
-				{icon:'img/emoticon/呼叫.png'},
-				{icon:'img/emoticon/花痴.png'},
-				{icon:'img/emoticon/加油.png'},
-				{icon:'img/emoticon/流口水.png'},
-				{icon:'img/emoticon/亲亲.png'},
-				{icon:'img/emoticon/色情狂.png'},
-				{icon:'img/emoticon/天使.png'},
-				{icon:'img/emoticon/跳舞.png'},
-				{icon:'img/emoticon/偷笑.png'},
-				{icon:'img/emoticon/吐舌头.png'},
-				{icon:'img/emoticon/微信.png'},
-				{icon:'img/emoticon/我的妈呀.png'},
-				{icon:'img/emoticon/享受.png'},
-				{icon:'img/emoticon/疑问.png'},
-				{icon:'img/emoticon/忧伤.png'},
-				{icon:'img/emoticon/晕.png'},
-				{icon:'img/emoticon/再见.png'}
-			]
+	  		guest:[],
+			gifs1:[],
+			gifs2:[],
+			gifs3:[],
+			emoticon:[],
+			url:'http://demo1.kol110.com/data.php'
 	  	}
 	},
 	methods:{
+		getVideo:function(){
+			var thar = this;
+		  	this.$axios({
+			    method:"get",
+			    url:thar.url,
+			    params:{type:'video'}
+			}).
+			then((res)=>{
+			    thar.video = res.data;
+			},(err)=>{
+			    console.log(err);
+			})
+		},
+		getGuest:function(){
+			var thar = this;
+		  	this.$axios({
+			    method:"get",
+			    url:thar.url,
+			    params:{type:'guest'}
+			}).
+			then((res)=>{
+			    thar.guest = res.data;
+			},(err)=>{
+			    console.log(err);
+			})
+		},
+		getGifs1:function(){
+			var thar = this;
+			this.$axios({
+			    method:"get",
+			    url:thar.url,
+			    params:{type:'gifs1'}
+			}).
+			then((res)=>{
+			    thar.gifs1 = res.data;
+			},(err)=>{
+			    console.log(err);
+			})
+		},
+		getGifs2:function(){
+			var thar = this;
+			this.$axios({
+			    method:"get",
+			    url:thar.url,
+			    params:{type:'gifs2'}
+			}).
+			then((res)=>{
+			    thar.gifs2 = res.data;
+			},(err)=>{
+			    console.log(err);
+			})
+		},
+		getGifs3:function(){
+			var thar = this;
+			this.$axios({
+			    method:"get",
+			    url:thar.url,
+			    params:{type:'gifs3'}
+			}).
+			then((res)=>{
+			    thar.gifs3 = res.data;
+			},(err)=>{
+			    console.log(err);
+			})
+		},
+		getEmoticon:function(){
+			var thar = this;
+			this.$axios({
+			    method:"get",
+			    url:thar.url,
+			    params:{type:'emoticon'}
+			}).
+			then((res)=>{
+			    thar.emoticon = res.data;
+			},(err)=>{
+			    console.log(err);
+			})
+		},
 		sures:function(){
 			var thar = this;
 			thar.sure=true;
@@ -367,7 +386,18 @@ export default {
 		}
 	},
 	mounted(){
-
+		setTimeout(function(){
+			var player = videojs('videomv', {}, function(){})
+			player.play();
+		}, 500);
+	},
+	created(){
+		this.getVideo();
+		this.getGuest();
+		this.getGifs1();
+		this.getGifs2();
+		this.getGifs3();
+		this.getEmoticon();
 	}
 }
 </script>

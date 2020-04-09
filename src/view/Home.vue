@@ -265,127 +265,30 @@ import { MESSAGE_TYPE } from 'vue-baberrage'
 export default {
 	data(){
 	  	return{
-	  		tab:['嘉宾','产品','观众'],
+	  		tab:[],
 	  		act:1,
 	  		sure:false,
 	  		gifshow:1,
 	  		postmer:false,
-	  		guest:[
-				{id:1,ico:'img/icon.png',name:'北京导管室主任',pri:'108E币'},
-				{id:2,ico:'img/icon.png',name:'北京导管室主任',pri:'109E币'},
-				{id:3,ico:'img/icon.png',name:'北京导管室主任',pri:'102E币'},
-				{id:4,ico:'img/icon.png',name:'北京导管室主任',pri:'10E币'},
-				{id:5,ico:'img/icon.png',name:'北京导管室主任',pri:'98E币'},
-				{id:6,ico:'img/icon.png',name:'北京导管室主任',pri:'138E币'},
-				{id:7,ico:'img/icon.png',name:'北京导管室主任',pri:'128E币'},
-				{id:8,ico:'img/icon.png',name:'北京导管室主任',pri:'77E币'},
-				{id:9,ico:'img/icon.png',name:'北京导管室主任',pri:'13E币'},
-				{id:10,ico:'img/icon.png',name:'北京导管室主任',pri:'68E币'}
-			],
-			pro:[
-				{ico:'img/icon.png',name:'南京导管室主任',pri:'108E币'},
-				{ico:'img/icon.png',name:'南京导管室主任',pri:'109E币'},
-				{ico:'img/icon.png',name:'南京导管室主任',pri:'102E币'},
-				{ico:'img/icon.png',name:'南京导管室主任',pri:'10E币'},
-				{ico:'img/icon.png',name:'北京导管室主任',pri:'98E币'},
-				{ico:'img/icon.png',name:'北京导管室主任',pri:'138E币'},
-				{ico:'img/icon.png',name:'北京导管室主任',pri:'128E币'},
-				{ico:'img/icon.png',name:'北京导管室主任',pri:'77E币'},
-				{ico:'img/icon.png',name:'北京导管室主任',pri:'13E币'},
-				{ico:'img/icon.png',name:'北京导管室主任',pri:'68E币'}
-			],
-			audience:[
-				{ico:'img/icon.png',name:'成都导管室主任',pri:'108E币'},
-				{ico:'img/icon.png',name:'北京导管室主任',pri:'109E币'},
-				{ico:'img/icon.png',name:'成都导管室主任',pri:'102E币'},
-				{ico:'img/icon.png',name:'北京导管室主任',pri:'10E币'},
-				{ico:'img/icon.png',name:'成都导管室主任',pri:'98E币'},
-				{ico:'img/icon.png',name:'北京导管室主任',pri:'138E币'},
-				{ico:'img/icon.png',name:'成都导管室主任',pri:'128E币'},
-				{ico:'img/icon.png',name:'北京导管室主任',pri:'77E币'},
-				{ico:'img/icon.png',name:'北京导管室主任',pri:'13E币'},
-				{ico:'img/icon.png',name:'北京导管室主任',pri:'68E币'}
-			],
-			vid:{tit:'新广直播网页，第101期心血管病危介入治疗专场',num:'4950'},
-			video:'http://ivi.bupt.edu.cn/hls/cctv1hd.m3u8',
+			guest:[],
+			pro:[],
+			audience:[],
+			vid:[],
+			video:'',
 			showf:true,
 			shows:true,
 			tiv:1,
-			message:[
-				{add:'left',ico:'img/icon.png',name:'Lorem lpsum',gf:true,ms:false,zj:false,ding:true,content:'1最好我们提前半小时开始直'},
-				{add:'right',ico:'img/icon.png',name:'Lorem lpsum',gf:true,ms:false,zj:false,ding:false,content:'2最好我们提前半小时开始直'},
-				{add:'left',ico:'img/icon.png',name:'Lorem lpsum',gf:false,ms:true,zj:false,ding:false,content:'3最好我们提前半小时开始直'},
-				{add:'right',ico:'img/icon.png',name:'Lorem lpsum',gf:false,ms:false,zj:true,ding:false,content:'4最好我们提前半小时开始直播，现在手术室空置，导播看到回复一下我'},
-				{add:'left',ico:'img/icon.png',name:'Lorem lpsum',gf:true,ms:false,zj:false,ding:false,content:'5最好我们提前半小时开始直播'},
-			],
+			message:[],
 			proms:false,
 			zan:false,
 			emot:false,
-			gifs1:[
-				{icon:'img/gif_01.png',name:'救护车',price:10},
-				{icon:'img/gif_02.png',name:'口罩',price:11},
-				{icon:'img/gif_03.png',name:'眼罩',price:12},
-				{icon:'img/gif_04.png',name:'羽蛇神',price:13},
-				{icon:'img/gif_05.png',name:'小蓝瓶',price:14},
-				{icon:'img/gif_01.png',name:'救护车',price:15},
-			],
-			gifs2:[
-				{icon:'img/gif_01.png',name:'救护车',price:20},
-				{icon:'img/gif_01.png',name:'救护车',price:30},
-				{icon:'img/gif_01.png',name:'救护车',price:40},
-				{icon:'img/gif_01.png',name:'救护车',price:50},
-				{icon:'img/gif_01.png',name:'救护车',price:60},
-				{icon:'img/gif_01.png',name:'救护车',price:70},
-			],
-			gifs3:[
-				{icon:'img/gif_01.png',name:'救护车',price:10},
-				{icon:'img/gif_01.png',name:'救护车',price:10},
-				{icon:'img/gif_01.png',name:'救护车',price:10},
-				{icon:'img/gif_01.png',name:'救护车',price:10},
-				{icon:'img/gif_01.png',name:'救护车',price:10},
-				{icon:'img/gif_01.png',name:'救护车',price:10},
-			],
-			emoticon:[
-				{icon:'img/emoticon/爱慕.png'},
-				{icon:'img/emoticon/安慰.png'},
-				{icon:'img/emoticon/悲泣.png'},
-				{icon:'img/emoticon/不会吧.png'},
-				{icon:'img/emoticon/财主.png'},
-				{icon:'img/emoticon/大笑.png'},
-				{icon:'img/emoticon/呆若木鸡.png'},
-				{icon:'img/emoticon/飞吻.png'},
-				{icon:'img/emoticon/尴尬.png'},
-				{icon:'img/emoticon/害羞.png'},
-				{icon:'img/emoticon/呼叫.png'},
-				{icon:'img/emoticon/花痴.png'},
-				{icon:'img/emoticon/加油.png'},
-				{icon:'img/emoticon/流口水.png'},
-				{icon:'img/emoticon/亲亲.png'},
-				{icon:'img/emoticon/色情狂.png'},
-				{icon:'img/emoticon/天使.png'},
-				{icon:'img/emoticon/跳舞.png'},
-				{icon:'img/emoticon/偷笑.png'},
-				{icon:'img/emoticon/吐舌头.png'},
-				{icon:'img/emoticon/微信.png'},
-				{icon:'img/emoticon/我的妈呀.png'},
-				{icon:'img/emoticon/享受.png'},
-				{icon:'img/emoticon/疑问.png'},
-				{icon:'img/emoticon/忧伤.png'},
-				{icon:'img/emoticon/晕.png'},
-				{icon:'img/emoticon/再见.png'}
-			],
+			gifs1:[],
+			gifs2:[],
+			gifs3:[],
+			emoticon:[],
 			playshow:0,
 			text:'',
-			msg: [
-				{id:1,'msg':'11111111',time:5,avatar: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3064584167,3502823640&fm=26&gp=0.jpg'},
-				{id:2,'msg':'2222222',time:7,avatar: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3064584167,3502823640&fm=26&gp=0.jpg'},
-				{id:3,'msg':'3333333333',time:10,avatar: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3064584167,3502823640&fm=26&gp=0.jpg'},
-				{id:4,'msg':'4444444444',time:16,avatar: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3064584167,3502823640&fm=26&gp=0.jpg'},
-				{id:5,'msg':'55555555555',time:7,avatar: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3064584167,3502823640&fm=26&gp=0.jpg'},
-				{id:6,'msg':'666666666666',time:11,avatar: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3064584167,3502823640&fm=26&gp=0.jpg'},
-				{id:7,'msg':'7777777777',time:12,avatar: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3064584167,3502823640&fm=26&gp=0.jpg'},
-				{id:8,'msg':'8888888888',time:9,avatar: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3064584167,3502823640&fm=26&gp=0.jpg'},
-			],
+			msg: [],
 			barrageIsShow: true,
 			currentId : 0,
 			barrageLoop: false,
@@ -394,10 +297,168 @@ export default {
 			num:1,
 			attr:[],
 			personnum:0,
-			checkedValue:''
+			checkedValue:'',
+			url:'http://demo1.kol110.com/data.php'
 		}
 	},
 	methods:{
+		getVideo:function(){
+			var thar = this;
+		  	this.$axios({
+			    method:"get",
+			    url:thar.url,
+			    params:{type:'video'}
+			}).
+			then((res)=>{
+			    thar.video = res.data;
+			    console.log(thar.video);
+			},(err)=>{
+			    console.log(err);
+			})
+		},
+		getTab:function(){
+			var thar = this;
+		  	this.$axios({
+			    method:"get",
+			    url:thar.url,
+			    params:{type:'tab'}
+			}).
+			then((res)=>{
+			    thar.tab = res.data;
+			},(err)=>{
+			    console.log(err);
+			})
+		},
+		getGuest:function(){
+			var thar = this;
+		  	this.$axios({
+			    method:"get",
+			    url:thar.url,
+			    params:{type:'guest'}
+			}).
+			then((res)=>{
+			    thar.guest = res.data;
+			},(err)=>{
+			    console.log(err);
+			})
+		},
+		getPro:function(){
+			var thar = this;
+			this.$axios({
+			    method:"get",
+			    url:thar.url,
+			    params:{type:'pro'}
+			}).
+			then((res)=>{
+			    thar.pro = res.data;
+			},(err)=>{
+			    console.log(err);
+			})
+		},
+		getAudience:function(){
+			var thar = this;
+			this.$axios({
+			    method:"get",
+			    url:thar.url,
+			    params:{type:'audience'}
+			}).
+			then((res)=>{
+			    thar.audience = res.data;
+			},(err)=>{
+			    console.log(err);
+			})
+		},
+		getVid:function(){
+			var thar = this;
+			this.$axios({
+			    method:"get",
+			    url:thar.url,
+			    params:{type:'vid'}
+			}).
+			then((res)=>{
+			    thar.vid = res.data;
+			},(err)=>{
+			    console.log(err);
+			})
+		},
+		getMessage:function(){
+			var thar = this;
+			this.$axios({
+			    method:"get",
+			    url:thar.url,
+			    params:{type:'message'}
+			}).
+			then((res)=>{
+			    thar.message = res.data;
+			},(err)=>{
+			    console.log(err);
+			})
+		},
+		getGifs1:function(){
+			var thar = this;
+			this.$axios({
+			    method:"get",
+			    url:thar.url,
+			    params:{type:'gifs1'}
+			}).
+			then((res)=>{
+			    thar.gifs1 = res.data;
+			},(err)=>{
+			    console.log(err);
+			})
+		},
+		getGifs2:function(){
+			var thar = this;
+			this.$axios({
+			    method:"get",
+			    url:thar.url,
+			    params:{type:'gifs2'}
+			}).
+			then((res)=>{
+			    thar.gifs2 = res.data;
+			},(err)=>{
+			    console.log(err);
+			})
+		},
+		getGifs3:function(){
+			var thar = this;
+			this.$axios({
+			    method:"get",
+			    url:thar.url,
+			    params:{type:'gifs3'}
+			}).
+			then((res)=>{
+			    thar.gifs3 = res.data;
+			},(err)=>{
+			    console.log(err);
+			})
+		},
+		getEmoticon:function(){
+			var thar = this;
+			this.$axios({
+			    method:"get",
+			    url:thar.url,
+			    params:{type:'emoticon'}
+			}).
+			then((res)=>{
+			    thar.emoticon = res.data;
+			},(err)=>{
+			    console.log(err);
+			})
+		},
+		getMsg:function(){
+			var thar = this;
+			this.$axios({
+			    method:"get",
+			    url:thar.url,
+			    params:{type:'msg'}
+			}).
+			then((res)=>{
+			    thar.msg = res.data;
+			},(err)=>{
+			    console.log(err);
+			})
+		},
 		pay:function(e){
 			var thar = this;
 			alert(thar.items.price*thar.num*thar.personnum+','+thar.checkedValue);
@@ -544,12 +605,27 @@ export default {
 				thar.gifshow = thar.gifshow+i;
 			}
 		}
-		
 	},
 	mounted(){
 		this.$refs.check.checked = false;
-		var player = videojs('videomv', {}, function(){})
-		player.play();
+		setTimeout(function(){
+			var player = videojs('videomv', {}, function(){})
+			player.play();
+		}, 500);
+	},
+	created(){
+		this.getVideo();
+		this.getTab();
+		this.getGuest();
+		this.getPro();
+		this.getAudience();
+		this.getVid();
+		this.getMessage();
+		this.getGifs1();
+		this.getGifs2();
+		this.getGifs3();
+		this.getEmoticon();
+		this.getMsg();
 	}
 }
 
