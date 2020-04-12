@@ -8,8 +8,8 @@ import { vueBaberrage } from 'vue-baberrage'
 Vue.use(vueBaberrage)
 Vue.prototype.$axios=axios
 Vue.config.productionTip = false
-
 new Vue({
   render: h => h(App),
   router,
 }).$mount('#app')
+

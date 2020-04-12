@@ -16,6 +16,7 @@ export default {
 
 <style>
 *{padding:0;margin:0;margin: 0 auto;color: #4a4a4a;}
+a{text-decoration: none;}
 html{padding: 0;margin: 0;}
 [v-cloak]{display: none ! important;}
 ul li{list-style-type: none;}

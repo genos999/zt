@@ -89,6 +89,15 @@ $tab = array(
 	'2'=>'观众',
 );
 $video = 'http://ivi.bupt.edu.cn/hls/cctv1hd.m3u8';
+$haibao = array(
+    'head'=>'img/icon.png',
+    'name'=>'北冥',
+    'banner'=>'img/banner.png',
+    'title'=>'心血管病危介入治疗专场',
+    'time'=>'2020年10月1日',
+    'code'=>'img/code.png',
+    'link'=>'www.e-lab.com',
+);
 $emoticon = array(
 	array('id'=>1,'icon'=>'img/emoticon/爱慕.png'),
     array('id'=>2,'icon'=>'img/emoticon/爱慕.png'),
@@ -123,43 +132,43 @@ $emoticon = array(
 
 switch ($_GET['type']) {
 	case 'guest':
-		echo json_encode($guest);
+        echo json_encode(array('code'=>200,data=>$guest));
 		break;
 	case 'pro':
-		echo json_encode($pro);
+        echo json_encode(array('code'=>200,data=>$pro));
 		break;
 	case 'audience':
-		echo json_encode($audience);
+        echo json_encode(array('code'=>200,data=>$audience));
 		break;
 	case 'vid':
-		echo json_encode($vid);
+        echo json_encode(array('code'=>200,data=>$vid));
 		break;
 	case 'tab':
-		echo json_encode($tab);
-		break;
-	case 'tab':
-		echo json_encode($tab);
+        echo json_encode(array('code'=>200,data=>$tab));
 		break;
 	case 'message':
-		echo json_encode($message);
+        echo json_encode(array('code'=>200,data=>$message));
 		break;
 	case 'gifs1':
-		echo json_encode($gifs1);
+        echo json_encode(array('code'=>200,data=>$gifs1));
 		break;
 	case 'gifs2':
-		echo json_encode($gifs2);
+        echo json_encode(array('code'=>200,data=>$gifs2));
 		break;
 	case 'gifs3':
-		echo json_encode($gifs3);
+        echo json_encode(array('code'=>200,data=>$gifs3));
 		break;
 	case 'emoticon':
-		echo json_encode($emoticon);
+        echo json_encode(array('code'=>200,data=>$emoticon));
 		break;
 	case 'msg':
-		echo json_encode($msg);
+        echo json_encode(array('code'=>200,data=>$msg));
 		break;
 	case 'video':
-        echo $video;
+        echo json_encode(array('code'=>200,data=>$video));
+        break;
+    case 'haibao':
+        echo json_encode(array('code'=>200,data=>$haibao));
         break;
     
 	default:

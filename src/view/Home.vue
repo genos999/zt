@@ -56,18 +56,18 @@
 					</div>
 				</div>
 				<div class="acenter">
-					<video muted id='videomv' class="video-js vjs-default-skin" controls allowfullscreen="true">
-			            <source :src="video">    
+					<video muted id='videomv' class="video-js vjs-default-skin vjs-big-play-centered vjs-16-9" controls allowfullscreen="true">
+			            <!-- <source :src="video"> -->
 			        </video>
-			        <vue-baberrage
+			        <!-- <vue-baberrage
 					   :isShow= "barrageIsShow"
 					   :barrageList = "barrageList"
 					   :loop = "barrageLoop"
 					   >
-					</vue-baberrage>
+					</vue-baberrage> -->
 					<div class="control">
 						<div class="left">
-							<img src="img/share.png">
+							<img :src="share==0?'img/share.png':'img/share_on.png'" @mouseover="share=1" @mouseout="share=0" @click="shareshow">
 							<img src="img/phone.png">
 							<img src="img/full.png" @click="fullscreen">
 						</div>
@@ -182,6 +182,18 @@
 							</div>
 						</div>
 					</div>
+					<div v-if="shareImg==1" class="share">
+						<div class="sharecontent">
+							<img src="img/icon_close.png" class="close abs" @click="shareImg=0">
+							<img :src="haibao.head" class="head abs">
+							<span class="name abs" v-text="haibao.name"></span>
+							<img :src="haibao.banner" class="banner abs">
+							<span class="titles abs" v-text="haibao.title"></span>
+							<span class="time abs" v-text="'会议时间：'+haibao.time"></span>
+							<img :src="haibao.code" class="code abs">
+							<span class="link abs">{{haibao.link}}<a href="javascript:;" :data-clipboard-text="haibao.link" id="copy_text" @click="copy">复制</a></span>
+						</div>
+					</div>
 				</div>
 			</div>
 			<div class="chat">
@@ -258,10 +270,12 @@
 	</div>
 </template>
 <script>
+import '../assets/scss/style.css';
 import videojs from 'video.js'
 import 'videojs-contrib-hls'
 import 'video.js/dist/video.min.js'
 import { MESSAGE_TYPE } from 'vue-baberrage'
+import Clipboard from 'clipboard'
 export default {
 	data(){
 	  	return{
@@ -298,10 +312,50 @@ export default {
 			attr:[],
 			personnum:0,
 			checkedValue:'',
-			url:'http://demo1.kol110.com/data.php'
+			url:'http://demo1.kol110.com/data.php',
+			share:0,
+			shareImg:0,
+			haibao:[]
 		}
 	},
 	methods:{
+		copy:function(){
+			var thar = this;
+			var clipborad = new Clipboard("#copy_text");
+			clipborad.on('success',e=>{
+				alert('复制成功');
+				clipborad.destroy();
+			})
+			clipborad.on('error',e=>{
+				Message({
+					message:'该浏览器暂不支持自动复制',
+					type:'warning'
+				});
+				clipborad.destroy();
+			})
+		},
+		shareshow:function(){
+			var thar = this;
+			thar.shareImg = 1;
+			if(thar.haibao==''){
+				this.getHaibao();
+			}
+		},
+		getHaibao:function(){
+			var thar = this;
+		  	this.$axios({
+			    method:"get",
+			    url:thar.url,
+			    params:{type:'haibao'}
+			}).
+			then((res)=>{
+				if(res.data.code==200){
+			    	thar.haibao = res.data.data;
+				}
+			},(err)=>{
+			    console.log(err);
+			})
+		},
 		getVideo:function(){
 			var thar = this;
 		  	this.$axios({
@@ -310,8 +364,9 @@ export default {
 			    params:{type:'video'}
 			}).
 			then((res)=>{
-			    thar.video = res.data;
-			    console.log(thar.video);
+			    if(res.data.code==200){
+			    	thar.video = res.data.data;
+				}
 			},(err)=>{
 			    console.log(err);
 			})
@@ -324,7 +379,9 @@ export default {
 			    params:{type:'tab'}
 			}).
 			then((res)=>{
-			    thar.tab = res.data;
+			    if(res.data.code==200){
+			    	thar.tab = res.data.data;
+				}
 			},(err)=>{
 			    console.log(err);
 			})
@@ -337,7 +394,9 @@ export default {
 			    params:{type:'guest'}
 			}).
 			then((res)=>{
-			    thar.guest = res.data;
+			    if(res.data.code==200){
+			    	thar.guest = res.data.data;
+				}
 			},(err)=>{
 			    console.log(err);
 			})
@@ -350,7 +409,9 @@ export default {
 			    params:{type:'pro'}
 			}).
 			then((res)=>{
-			    thar.pro = res.data;
+			    if(res.data.code==200){
+			    	thar.pro = res.data.data;
+				}
 			},(err)=>{
 			    console.log(err);
 			})
@@ -363,7 +424,9 @@ export default {
 			    params:{type:'audience'}
 			}).
 			then((res)=>{
-			    thar.audience = res.data;
+			    if(res.data.code==200){
+			    	thar.audience = res.data.data;
+				}
 			},(err)=>{
 			    console.log(err);
 			})
@@ -376,7 +439,9 @@ export default {
 			    params:{type:'vid'}
 			}).
 			then((res)=>{
-			    thar.vid = res.data;
+			    if(res.data.code==200){
+			    	thar.vid = res.data.data;
+				}
 			},(err)=>{
 			    console.log(err);
 			})
@@ -389,7 +454,9 @@ export default {
 			    params:{type:'message'}
 			}).
 			then((res)=>{
-			    thar.message = res.data;
+			    if(res.data.code==200){
+			    	thar.message = res.data.data;
+				}
 			},(err)=>{
 			    console.log(err);
 			})
@@ -402,7 +469,9 @@ export default {
 			    params:{type:'gifs1'}
 			}).
 			then((res)=>{
-			    thar.gifs1 = res.data;
+			    if(res.data.code==200){
+			    	thar.gifs1 = res.data.data;
+				}
 			},(err)=>{
 			    console.log(err);
 			})
@@ -415,7 +484,9 @@ export default {
 			    params:{type:'gifs2'}
 			}).
 			then((res)=>{
-			    thar.gifs2 = res.data;
+			    if(res.data.code==200){
+			    	thar.gifs2 = res.data.data;
+				}
 			},(err)=>{
 			    console.log(err);
 			})
@@ -428,7 +499,9 @@ export default {
 			    params:{type:'gifs3'}
 			}).
 			then((res)=>{
-			    thar.gifs3 = res.data;
+			    if(res.data.code==200){
+			    	thar.gifs3 = res.data.data;
+				}
 			},(err)=>{
 			    console.log(err);
 			})
@@ -441,7 +514,9 @@ export default {
 			    params:{type:'emoticon'}
 			}).
 			then((res)=>{
-			    thar.emoticon = res.data;
+			    if(res.data.code==200){
+			    	thar.emoticon = res.data.data;
+				}
 			},(err)=>{
 			    console.log(err);
 			})
@@ -454,7 +529,9 @@ export default {
 			    params:{type:'msg'}
 			}).
 			then((res)=>{
-			    thar.msg = res.data;
+			    if(res.data.code==200){
+			    	thar.msg = res.data.data;
+				}
 			},(err)=>{
 			    console.log(err);
 			})
@@ -636,36 +713,37 @@ export default {
 ul li{list-style-type: none;}
 #main{background:url(/img/bg.png) no-repeat #dfebf1;background-size:100%;height: auto;}
 #main .logo img{width: 575px;margin: 0 auto;display: block;padding-top: 80px;}
-#main .cent{width: 98%;margin: 0 auto;margin-top: 80px;display: flex;justify-content: space-around;}
-#main .cent .rank{width: 23%;float: left;padding-bottom: 10px;background: #fff;}
-#main .cent .chat{width: 23%;float: left;height: auto;background: #fff;}
-#main .cent .player{width: 55%;height: auto;float: left;background: #fff;margin: 0 0.5%;}
-#main .cent .rank .title{text-align: center;background:#cbcbcb;height: 50px;line-height: 50px;font-size: 18px;letter-spacing: 2px;}
-#main .cent .rank .tab{width: 90%;margin: 0 auto;height: 50px;line-height: 50px;}
-#main .cent .rank .tab span{font-size:16px;width: 33.33%;text-align: center;display: block;float: left;cursor: pointer;}
+#main .cent{width: 97%;margin: 0 auto;margin-top: 80px;display: flex;justify-content: space-around;}
+#main .cent .rank{width: 378px;/*no*/float: left;padding-bottom: 10px;background: #fff;}
+#main .cent .chat{width: 378px;/*no*/float: left;height: auto;background: #fff;}
+#main .cent .player{width: 1095px;/*no*/height: auto;float: left;background: #fff;margin: 0 0.5%;}
+#main .cent .rank .title{text-align: center;background:#cbcbcb;letter-spacing: 2px;}
+#main .cent .rank .tab{width: 100%;margin: 0 auto;}
+#main .cent .rank .tab span{width: 33.33333%;text-align: center;display: block;float: left;cursor: pointer;}
 /*#main .cent .rank .tab span:nth-child(1){text-align: left;}*/
 /*#main .cent .rank .tab span:nth-child(3){text-align: right;}*/
-#main .cent .rank .tab span.active{background:#dfebf1;}
+#main .cent .rank .tab span.active{background:#15b0e9;color:#fff;border-radius: 5px;}
 #main .cent .rank .tabCon{width: 90%;margin: 0 auto;}
 #main .cent .rank .aleft{background:#fff;}
-#main .cent .rank .aleft ul li{overflow: hidden;font-size: 14px;background: #dfebf1;height: 40px;line-height: 40px;margin: 10px 0;}
-#main .cent .rank .aleft ul li:nth-child(1){margin-top: 0px;}
-#main .cent .rank .aleft ul li span img{width: 21px;vertical-align: text-top;}
-#main .cent .rank .aleft ul li span:nth-child(1){width: 30px;display: block;float: left;padding-left: 7px;}
+#main .cent .rank .aleft ul li{overflow: hidden;background: #dfebf1;margin: 15px 0;}
+#main .cent .rank .aleft ul li:nth-child(1){margin-top: 5px;}
+#main .cent .rank .aleft ul li span{color: #858585;}
+#main .cent .rank .aleft ul li span img{width: 30px;vertical-align: middle;}
+#main .cent .rank .aleft ul li span:nth-child(1){display: block;float: left;}
 #main .cent .rank .aleft ul li span:nth-child(2){width: 30px;display: block;float: left;}
-#main .cent .rank .aleft ul li span:nth-child(3){width: 108px;display: block;float: left;}
+#main .cent .rank .aleft ul li span:nth-child(3){margin-left:10px;display: block;float: left;}
 #main .cent .rank .aleft ul li span:nth-child(4){text-align: right;display: block;padding-right: 7px;}
-#main .cent .player .title{background:#fff;height: 65px;line-height: 65px;padding:0 20px;}
+#main .cent .player .title{background:#fff;}
 #main .cent .player .title .t1{float: left;}
 #main .cent .player .title .t2{float: right;}
-#main .cent .player .title .t1 img{width: 25px;vertical-align: middle;margin-right: 15px;}
-#main .cent .player .title .t1 span{font-size: 17px;}
-#main .cent .player .title .t2 img{width: 20px;vertical-align: sub;}
-#main .cent .player .title .t2 span{font-size: 14px;}
+#main .cent .player .title .t1 img{vertical-align: middle;}
+#main .cent .player .title .t1 span{}
+#main .cent .player .title .t2 img{width: 30px;vertical-align: sub;}
+#main .cent .player .title .t2 span{font-size: 18px;padding: 0 30px 0 10px;}
 #main .cent .player .acenter{position: relative;}
 #main .cent .player #videomv{width: 100%;height:450px;}
-#main .cent .player .control{width: 100%;height:75px;background:#fff;line-height: 75px;}
-#main .cent .player .control .left img{vertical-align: middle;cursor: pointer;margin: 0 5px;width: 25px;}
+#main .cent .player .control{width: 100%;background:#fff;}
+#main .cent .player .control .left img{vertical-align: middle;cursor: pointer;margin: 0 10px;width: 25px;}
 #main .cent .player .control .left{float: left;}
 #main .cent .player .control .right{float: right;position: relative;}
 #main .cent .player .control .right .proms{width: 300px;height: 220px;background: #292b38;position: absolute;bottom: 60px;border-radius: 10px;left: -125px;}
@@ -714,7 +792,7 @@ ul li{list-style-type: none;}
 }
 .control input[type="checkbox"]:checked + label.label {background-color: #e0e0e0;}
 .control input[type="checkbox"]:checked + label.label:after {left: 29px;}
-.chat .ad{height: 150px;background:blue;width: 100%;}
+.chat .ad{height: 278px;background:blue;width: 100%;}
 .chat .im{overflow: auto;height: 330px;padding: 20px 10px 15px 15px;font-size: 14px;}
 .chat .im .left{clear: both;margin-bottom: 5px;height: auto;display: inline-block;}
 .chat .im .right{clear: both;margin-bottom: 5px;height: auto;display: inline-block;float: right}
@@ -820,4 +898,10 @@ ul li{list-style-type: none;}
 .way .ways a{color: #fff;background: #00aaee;font-size: 12px;padding: 0px 7px;border-radius: 10px;text-align: right;margin-left: 5px;}
 .ofsure{clear:both;height: 40px;margin-top: -45px;}
 .ofsure button{clear:both;width: 80%;padding:0 10px;background: #ff0267;color: #fff;height: 30px;line-height: 30px;border:none;outline: none;border-radius: 5px;margin: 0 auto;display: block;cursor: pointer;}
+.share{background: url(/img/haibao.png) no-repeat;position: absolute;left: 0;background-size: 100%;}
+.sharecontent{position: relative;width: 100%;height: 100%;z-index: 1;}
+.abs{position: absolute;}
+.sharecontent span{color: #fff;}
+.sharecontent .link a{color: #239fff;}
+.sharecontent .close{top: 5px;right: 5px;cursor: pointer;}
 </style>
