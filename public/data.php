@@ -5,40 +5,40 @@ header('Access-Control-Allow-Methods:POST');
 header('Access-Control-Allow-Headers:x-requested-with,content-type');
 
 $guest = array(
-    array('id'=>'1','ico'=>'img/icon.png','name'=>'北京导管室主任','pri'=>'108E币'),
-    array('id'=>'2','ico'=>'img/icon.png','name'=>'北京导管室主任','pri'=>'109E币'),
-    array('id'=>'3','ico'=>'img/icon.png','name'=>'北京导管室主任','pri'=>'102E币'),
-    array('id'=>'4','ico'=>'img/icon.png','name'=>'北京导管室主任','pri'=>'10E币'),
-    array('id'=>'5','ico'=>'img/icon.png','name'=>'北京导管室主任','pri'=>'98E币'),
-    array('id'=>'6','ico'=>'img/icon.png','name'=>'北京导管室主任','pri'=>'138E币'),
-    array('id'=>'7','ico'=>'img/icon.png','name'=>'北京导管室主任','pri'=>'128E币'),
-    array('id'=>'8','ico'=>'img/icon.png','name'=>'北京导管室主任','pri'=>'77E币'),
-    array('id'=>'9','ico'=>'img/icon.png','name'=>'北京导管室主任','pri'=>'13E币'),
-    array('id'=>'10','ico'=>'img/icon.png','name'=>'北京导管室主任','pri'=>'68E币'),
+    array('id'=>'1','ico'=>'img/icon.png','name'=>'导管室主任','pri'=>'108E币'),
+    array('id'=>'2','ico'=>'img/icon.png','name'=>'导管室主任','pri'=>'109E币'),
+    array('id'=>'3','ico'=>'img/icon.png','name'=>'导管室主任','pri'=>'102E币'),
+    array('id'=>'4','ico'=>'img/icon.png','name'=>'导管室主任','pri'=>'10E币'),
+    array('id'=>'5','ico'=>'img/icon.png','name'=>'导管室主任','pri'=>'98E币'),
+    array('id'=>'6','ico'=>'img/icon.png','name'=>'导管室主任','pri'=>'138E币'),
+    array('id'=>'7','ico'=>'img/icon.png','name'=>'导管室主任','pri'=>'128E币'),
+    array('id'=>'8','ico'=>'img/icon.png','name'=>'导管室主任','pri'=>'77E币'),
+    array('id'=>'9','ico'=>'img/icon.png','name'=>'导管室主任','pri'=>'13E币'),
+    array('id'=>'10','ico'=>'img/icon.png','name'=>'导管室主任','pri'=>'68E币'),
 );
 $pro = array(
-    array('id'=>'1','ico'=>'img/icon.png','name'=>'南京导管室主任','pri'=>'108E币'),
-    array('id'=>'2','ico'=>'img/icon.png','name'=>'南京导管室主任','pri'=>'109E币'),
-    array('id'=>'3','ico'=>'img/icon.png','name'=>'南京导管室主任','pri'=>'102E币'),
-    array('id'=>'4','ico'=>'img/icon.png','name'=>'南京导管室主任','pri'=>'10E币'),
-    array('id'=>'5','ico'=>'img/icon.png','name'=>'南京导管室主任','pri'=>'98E币'),
-    array('id'=>'6','ico'=>'img/icon.png','name'=>'南京导管室主任','pri'=>'138E币'),
-    array('id'=>'7','ico'=>'img/icon.png','name'=>'南京导管室主任','pri'=>'128E币'),
-    array('id'=>'8','ico'=>'img/icon.png','name'=>'南京导管室主任','pri'=>'77E币'),
-    array('id'=>'9','ico'=>'img/icon.png','name'=>'南京导管室主任','pri'=>'13E币'),
-    array('id'=>'10','ico'=>'img/icon.png','name'=>'南京导管室主任','pri'=>'68E币'),
+    array('id'=>'1','ico'=>'img/icon.png','name'=>'导管室主任','pri'=>'108E币'),
+    array('id'=>'2','ico'=>'img/icon.png','name'=>'导管室主任','pri'=>'109E币'),
+    array('id'=>'3','ico'=>'img/icon.png','name'=>'导管室主任','pri'=>'102E币'),
+    array('id'=>'4','ico'=>'img/icon.png','name'=>'导管室主任','pri'=>'10E币'),
+    array('id'=>'5','ico'=>'img/icon.png','name'=>'导管室主任','pri'=>'98E币'),
+    array('id'=>'6','ico'=>'img/icon.png','name'=>'导管室主任','pri'=>'138E币'),
+    array('id'=>'7','ico'=>'img/icon.png','name'=>'导管室主任','pri'=>'128E币'),
+    array('id'=>'8','ico'=>'img/icon.png','name'=>'导管室主任','pri'=>'77E币'),
+    array('id'=>'9','ico'=>'img/icon.png','name'=>'导管室主任','pri'=>'13E币'),
+    array('id'=>'10','ico'=>'img/icon.png','name'=>'导管室主任','pri'=>'68E币'),
 );
 $audience = array(
-    array('id'=>'1','ico'=>'img/icon.png','name'=>'成都导管室主任','pri'=>'108E币'),
-    array('id'=>'2','ico'=>'img/icon.png','name'=>'成都导管室主任','pri'=>'109E币'),
-    array('id'=>'3','ico'=>'img/icon.png','name'=>'成都导管室主任','pri'=>'102E币'),
-    array('id'=>'4','ico'=>'img/icon.png','name'=>'成都导管室主任','pri'=>'10E币'),
-    array('id'=>'5','ico'=>'img/icon.png','name'=>'成都导管室主任','pri'=>'98E币'),
-    array('id'=>'6','ico'=>'img/icon.png','name'=>'成都导管室主任','pri'=>'138E币'),
-    array('id'=>'7','ico'=>'img/icon.png','name'=>'成都导管室主任','pri'=>'128E币'),
-    array('id'=>'8','ico'=>'img/icon.png','name'=>'成都导管室主任','pri'=>'77E币'),
-    array('id'=>'9','ico'=>'img/icon.png','name'=>'成都导管室主任','pri'=>'13E币'),
-    array('id'=>'10','ico'=>'img/icon.png','name'=>'成都导管室主任','pri'=>'68E币'),
+    array('id'=>'1','ico'=>'img/icon.png','name'=>'导管室主任','pri'=>'108E币'),
+    array('id'=>'2','ico'=>'img/icon.png','name'=>'导管室主任','pri'=>'109E币'),
+    array('id'=>'3','ico'=>'img/icon.png','name'=>'导管室主任','pri'=>'102E币'),
+    array('id'=>'4','ico'=>'img/icon.png','name'=>'导管室主任','pri'=>'10E币'),
+    array('id'=>'5','ico'=>'img/icon.png','name'=>'导管室主任','pri'=>'98E币'),
+    array('id'=>'6','ico'=>'img/icon.png','name'=>'导管室主任','pri'=>'138E币'),
+    array('id'=>'7','ico'=>'img/icon.png','name'=>'导管室主任','pri'=>'128E币'),
+    array('id'=>'8','ico'=>'img/icon.png','name'=>'导管室主任','pri'=>'77E币'),
+    array('id'=>'9','ico'=>'img/icon.png','name'=>'导管室主任','pri'=>'13E币'),
+    array('id'=>'10','ico'=>'img/icon.png','name'=>'导管室主任','pri'=>'68E币'),
 );
 $message = array(
     array('id'=>'1','add'=>'left','ico'=>'img/icon.png','name'=>'Lorem lpsum','gf'=>true,'ms'=>false,'zj'=>false,'ding'=>true,'content'=>'最好我们提前半小时开始直1'),
@@ -64,6 +64,22 @@ $gifs2 = array(
     array('id'=>'6','icon'=>'img/gif_06.png','name'=>'救护车','price'=>25),
 );
 $gifs3 = array(
+    array('id'=>'1','icon'=>'img/gif_01.png','name'=>'救护车','price'=>30),
+    array('id'=>'2','icon'=>'img/gif_02.png','name'=>'口罩','price'=>31),
+    array('id'=>'3','icon'=>'img/gif_03.png','name'=>'眼罩','price'=>32),
+    array('id'=>'4','icon'=>'img/gif_04.png','name'=>'羽蛇神','price'=>33),
+    array('id'=>'5','icon'=>'img/gif_05.png','name'=>'小蓝瓶','price'=>34),
+    array('id'=>'6','icon'=>'img/gif_06.png','name'=>'救护车','price'=>35),
+);
+$gifs4 = array(
+    array('id'=>'1','icon'=>'img/gif_01.png','name'=>'救护车','price'=>30),
+    array('id'=>'2','icon'=>'img/gif_02.png','name'=>'口罩','price'=>31),
+    array('id'=>'3','icon'=>'img/gif_03.png','name'=>'眼罩','price'=>32),
+    array('id'=>'4','icon'=>'img/gif_04.png','name'=>'羽蛇神','price'=>33),
+    array('id'=>'5','icon'=>'img/gif_05.png','name'=>'小蓝瓶','price'=>34),
+    array('id'=>'6','icon'=>'img/gif_06.png','name'=>'救护车','price'=>35),
+);
+$gifs5 = array(
     array('id'=>'1','icon'=>'img/gif_01.png','name'=>'救护车','price'=>30),
     array('id'=>'2','icon'=>'img/gif_02.png','name'=>'口罩','price'=>31),
     array('id'=>'3','icon'=>'img/gif_03.png','name'=>'眼罩','price'=>32),
@@ -97,6 +113,9 @@ $haibao = array(
     'time'=>'2020年10月1日',
     'code'=>'img/code.png',
     'link'=>'www.e-lab.com',
+);
+$phonecode = array(
+    'code'=>'img/code.png',
 );
 $emoticon = array(
 	array('id'=>1,'icon'=>'img/emoticon/爱慕.png'),
@@ -158,6 +177,12 @@ switch ($_GET['type']) {
 	case 'gifs3':
         echo json_encode(array('code'=>200,data=>$gifs3));
 		break;
+    case 'gifs4':
+        echo json_encode(array('code'=>200,data=>$gifs4));
+        break;
+    case 'gifs5':
+        echo json_encode(array('code'=>200,data=>$gifs5));
+        break;
 	case 'emoticon':
         echo json_encode(array('code'=>200,data=>$emoticon));
 		break;
@@ -170,7 +195,9 @@ switch ($_GET['type']) {
     case 'haibao':
         echo json_encode(array('code'=>200,data=>$haibao));
         break;
-    
+    case 'phonecode':
+        echo json_encode(array('code'=>200,data=>$phonecode));
+        break;
 	default:
 		# code...
 		break;

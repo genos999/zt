@@ -17,6 +17,16 @@
 	.sharecontent .time{top: 235px;left: 0;width: 100%;text-align: center;font-size: 12px;}
 	.sharecontent .code{top: 260px;right: 34px;width: 76px;}
 	.sharecontent .link{top: 340px;left: 30px;font-size: 12px;color: #239fff ! important;font-weight: bold;}
+	.phone{left: 15px;bottom: 95px;width: 100px;height: 110px;}
+	.phone .code{left: 15px;top: 7px;}
+	.proms{left: 50%;top:45%;margin-top:-200px ! important;margin-left:-150px ! important;width: 300px;height: 400px;}
+	.proms p{font-size: 22px;letter-spacing: 3px;}
+	.sure{width: 350px;height: 580px;border-radius: 15px;left: 50%;top: 50%;margin-left: -181px  ! important;margin-top: -320px  ! important;}
+	.sure .suremain .total span:nth-child(1){line-height: 50px;}
+	.sure .suremain .total span:nth-child(2){line-height: 50px;}
+	.chat .ad{height: 130px;background:blue;width: 100%;}
+	.chat .im{height: 330px;padding: 20px 10px 15px 15px;font-size: 14px;}
+	.cont .mains .art .act span{font-size:16px;height: 40px;line-height: 40px;}
 } /*>=1024的设备屏幕*/
  
 @media (min-width: 1100px) {
@@ -38,6 +48,16 @@
 	.sharecontent .time{top: 265px;left: 0;width: 100%;text-align: center;font-size: 12px;}
 	.sharecontent .code{top: 290px;right: 38px;width: 82px;}
 	.sharecontent .link{top: 380px;left: 35px;font-size: 12px;color: #239fff ! important;font-weight: bold;}
+	.phone{left: 15px;bottom: 95px;width: 100px;height: 110px;}
+	.phone .code{left: 15px;top: 7px;}
+	.proms{left: 50%;top:45%;margin-top:-200px ! important;margin-left:-150px ! important;width: 300px;height: 400px;}
+	.proms p{font-size: 22px;letter-spacing: 3px;}
+	.sure{width: 350px;height: 580px;border-radius: 15px;left: 50%;top: 50%;margin-left: -181px  ! important;margin-top: -320px  ! important;}
+	.sure .suremain .total span:nth-child(1){line-height: 50px;}
+	.sure .suremain .total span:nth-child(2){line-height: 50px;}
+	.chat .ad{height: 180px;background:blue;width: 100%;}
+	.chat .im{height: 330px;padding: 20px 10px 15px 15px;font-size: 14px;}
+	.cont .mains .art .act span{font-size:16px;height: 40px;line-height: 40px;}
 } /*>=1100的设备屏幕*/
 @media (min-width: 1280px) {
 	#main .cent .rank .aleft ul li{height: 45px;line-height: 45px;}
@@ -58,6 +78,16 @@
 	.sharecontent .time{top: 285px;left: 0;width: 100%;text-align: center;font-size: 12px;}
 	.sharecontent .code{top: 315px;right: 40px;width: 90px;}
 	.sharecontent .link{top: 408px;left: 35px;font-size: 12px;color: #239fff ! important;font-weight: bold;}
+	.phone{left: 15px;bottom: 95px;width: 100px;height: 110px;}
+	.phone .code{left: 15px;top: 7px;}
+	.proms{left: 50%;top:50%;margin-top:-209px ! important;margin-left:-157px ! important;width: 314px;height: 418px;}
+	.proms p{font-size: 22px;letter-spacing: 3px;}
+	.sure{width: 350px;height: 580px;border-radius: 15px;left: 50%;top: 50%;margin-left: -181px  ! important;margin-top: -320px  ! important;}
+	.sure .suremain .total span:nth-child(1){line-height: 50px;}
+	.sure .suremain .total span:nth-child(2){line-height: 50px;}
+	.chat .ad{height: 200px;background:blue;width: 100%;}
+	.chat .im{height: 390px;padding: 20px 10px 15px 15px;font-size: 14px;}
+	.cont .mains .art .act span{font-size:16px;height: 40px;line-height: 40px;}
 } /*>=1280的设备屏幕*/
  
 @media (min-width: 1366px) {
@@ -80,6 +110,16 @@
 	.sharecontent .time{top: 330px;left: 0;width: 100%;text-align: center;font-size: 12px;}
 	.sharecontent .code{top: 360px;right: 40px;width: 110px;}
 	.sharecontent .link{top: 450px;left: 35px;font-size: 12px;color: #239fff;font-weight: bold;}
+	.phone{left: 15px;bottom: 95px;width: 100px;height: 110px;}
+	.phone .code{left: 15px;top: 7px;}
+	.proms{left: 50%;top:50%;margin-top:-209px ! important;margin-left:-157px ! important;width: 314px;height: 418px;}
+	.proms p{font-size: 22px;letter-spacing: 3px;}
+	.sure{width: 350px;height: 570px;border-radius: 15px;left: 50%;top: 50%;margin-left: -181px ! important;margin-top: -310px ! important;}
+	.sure .suremain .total span:nth-child(1){line-height: 50px;}
+	.sure .suremain .total span:nth-child(2){line-height: 50px;}
+	.chat .ad{height: 200px;}
+	.chat .im{height: 430px;padding: 20px 10px 15px 15px;font-size: 14px;}
+	.cont .mains .art .act span{font-size:17px;height: 45px;line-height: 45px;}
 } /*>=1366的设备屏幕*/ 
  
 @media (min-width: 1440px) {
@@ -102,6 +142,16 @@
 	.sharecontent .time{top: 330px;left: 0;width: 100%;text-align: center;font-size: 12px;}
 	.sharecontent .code{top: 360px;right: 40px;width: 110px;}
 	.sharecontent .link{top: 450px;left: 35px;font-size: 12px;color: #239fff;font-weight: bold;}
+	.phone{left: 15px;bottom: 95px;width: 100px;height: 110px;}
+	.phone .code{left: 15px;top: 7px;}
+	.proms{left: 50%;top:50%;margin-top:-209px ! important;margin-left:-157px ! important;width: 314px;height: 418px;}
+	.proms p{font-size: 22px;letter-spacing: 3px;}
+	.sure{width: 362px;height: 580px;border-radius: 15px;left: 50%;top: 50%;margin-left: -181px  ! important;margin-top: -300px  ! important;}
+	.sure .suremain .total span:nth-child(1){line-height: 60px;}
+	.sure .suremain .total span:nth-child(2){line-height: 60px;}
+	.chat .ad{height: 230px;background:blue;width: 100%;}
+	.chat .im{height: 450px;padding: 20px 10px 15px 15px;font-size: 14px;}
+	.cont .mains .art .act span{font-size:18px;height: 50px;line-height: 50px;}
 } /*>=1440的设备屏幕*/ 
  
 @media (min-width: 1680px) {
@@ -124,6 +174,16 @@
 	.sharecontent .time{top: 330px;left: 0;width: 100%;text-align: center;font-size: 12px;}
 	.sharecontent .code{top: 360px;right: 40px;width: 110px;}
 	.sharecontent .link{top: 450px;left: 35px;font-size: 12px;color: #239fff;font-weight: bold;}
+	.phone{left: 15px;bottom: 95px;width: 100px;height: 110px;}
+	.phone .code{left: 15px;top: 7px;}
+	.proms{left: 50%;top:50%;margin-top:-209px ! important;margin-left:-157px ! important;width: 314px;height: 418px;}
+	.proms p{font-size: 22px;letter-spacing: 3px;}
+	.sure{width: 362px;height: 580px;border-radius: 15px;left: 50%;top: 50%;margin-left: -181px  ! important;margin-top: -300px  ! important;}
+	.sure .suremain .total span:nth-child(1){line-height: 60px;}
+	.sure .suremain .total span:nth-child(2){line-height: 60px;}
+	.chat .ad{height: 278px;background:blue;width: 100%;}
+	.chat .im{height: 500px;padding: 20px 10px 15px 15px;font-size: 14px;}
+	.cont .mains .art .act span{font-size:19px;height: 55px;line-height: 55px;}
 }  /*>=1680的设备屏幕*/ 
 @media (min-width: 1920px) {
 	#main .cent .rank .aleft ul li{height: 70px;line-height: 70px;}
@@ -145,4 +205,14 @@
 	.sharecontent .time{top: 330px;left: 0;width: 100%;text-align: center;font-size: 12px;}
 	.sharecontent .code{top: 360px;right: 40px;width: 110px;}
 	.sharecontent .link{top: 450px;left: 35px;font-size: 12px;color: #239fff;font-weight: bold;}
+	.phone{left: 15px;bottom: 95px;width: 100px;height: 110px;}
+	.phone .code{left: 17px;top: 7px;}
+	.proms{left: 50%;top:50%;margin-top:-209px ! important;margin-left:-157px ! important;width: 314px;height: 418px;}
+	.proms p{font-size: 22px;letter-spacing: 3px;}
+	.sure{width: 362px;height: 580px;border-radius: 15px;left: 50%;top: 50%;margin-left: -181px  ! important;margin-top: -300px  ! important;}
+	.sure .suremain .total span:nth-child(1){line-height: 60px;}
+	.sure .suremain .total span:nth-child(2){line-height: 60px;}
+	.chat .ad{height: 278px;background:blue;width: 100%;}
+	.chat .im{height: 600px;padding: 20px 10px 15px 15px;font-size: 14px;}
+	.cont .mains .art .act span{font-size:20px;height: 60px;line-height: 60px;}
 }  /*>=1920的设备屏幕*/

@@ -68,7 +68,7 @@
 					<div class="control">
 						<div class="left">
 							<img :src="share==0?'img/share.png':'img/share_on.png'" @mouseover="share=1" @mouseout="share=0" @click="shareshow">
-							<img src="img/phone.png">
+							<img :src="phone==0?'img/phone.png':'img/phone_on.png'" @mouseover="phone=1" @mouseout="phone=0" @click="phoneshow">
 							<img src="img/full.png" @click="fullscreen">
 						</div>
 						<div class="right">
@@ -78,105 +78,115 @@
 							<input id="check" type="checkbox" ref="check">
         					<label class="label" for="check" @click="check($event)"></label>
 							<div class="proms" v-if="proms" v-cloak>
-								<div class="promy"></div>
-								<div class="sq">互动申请</div>
-								<div class="tct">
-									<img src="img/icon.png">
-									<span>XXX</span>
-									<span>北京一导管室主任</span>
-								</div>
-								<div class="arts">
-									各位同志好，我发表一下我的观点，这个手术难度还是非常大的，因为血管非常的狭窄，整个手术持续了一个小时
-								</div>
-								<div class="an">
-									<div class="jt" @click="proms=false">
-										<img src="img/i1.png">
-										<span>接通</span>
-									</div>
-									<div class="hl" @click="proms=false">
-										<img src="img/i2.png">
-										<span>忽略</span>
-									</div>
-								</div>
+								<p>互动申请</p>
+								<p class="form"><input type="text" placeholder="请输入你的名字"></p>
+								<p class="form"><input type="text" placeholder="请输入你的单位"></p>
+								<p class="form"><input type="text" placeholder="请输入你的电话"></p>
+								<p class="form"><textarea placeholder="申请内容"></textarea></p>
+								<button>提交申请</button>
+								<a href="javascript:;" @click="proms=false"></a>
 							</div>
 							<div class="gift" v-if="zan" v-cloak>
 								<div>
 									<div class="giftit">
-										<span @click="gifshow=1" :class="gifshow==1?'active':''">礼物1</span>
-										<span @click="gifshow=2" :class="gifshow==2?'active':''">礼物2</span>
-										<span @click="gifshow=3" :class="gifshow==3?'active':''">礼物3</span>
-									</div>
-									<div class="pre">
-										<img src="img/pre.png" @click="page('-1')">
+										<span @click="gifshow=1;divIndex=-1;items.price=0;" :class="gifshow==1?'active':''">礼物1</span>
+										<span @click="gifshow=2;divIndex=-1;items.price=0;;" :class="gifshow==2?'active':''">礼物2</span>
+										<span @click="gifshow=3;divIndex=-1;items.price=0;;" :class="gifshow==3?'active':''">礼物3</span>
+										<span @click="gifshow=4;divIndex=-1;items.price=0;;" :class="gifshow==4?'active':''">礼物4</span>
+										<span @click="gifshow=5;divIndex=-1;items.price=0;;" :class="gifshow==5?'active':''">礼物5</span>
 									</div>
 									<div class="gifmain">
-										<li v-for="g in gifs1" v-if="gifshow==1" @click="dopostmer(g)" v-cloak>
-											<img :src="g.icon+'?v=1.32'">
-											<span v-text="g.name"></span>
+										<li v-for="(g,i) in gifs1" v-if="gifshow==1" @click="dopostmer(g,$event,i)" :class="divIndex==i?'active':''" v-cloak>
+											<img :src="g.icon">
+											<span>{{g.name}}<em>￥ {{g.price}}E</em></span>
+											<span class="bak" v-if="divIndex==i?show:!show">
+												<img src="img/plus.png" @click="changeNum('1')">
+												<input type="text" v-model="num">
+												<img src="img/pus.png" @click="changeNum('-1')">
+											</span>
 										</li>
-										<li v-for="g in gifs2" v-if="gifshow==2" @click="dopostmer(g)" v-cloak>
-											<img :src="g.icon+'?v=1'">
-											<span v-text="g.name"></span>
+										<li v-for="(g,i) in gifs2" v-if="gifshow==2" @click="dopostmer(g,$event,i)" :class="divIndex==i?'active':''" v-cloak>
+											<img :src="g.icon">
+											<span>{{g.name}}<em>￥ {{g.price}}E</em></span>
+											<span class="bak" v-if="divIndex==i?show:!show">
+												<img src="img/plus.png" @click="changeNum('1')">
+												<input type="text" v-model="num">
+												<img src="img/pus.png" @click="changeNum('-1')">
+											</span>
 										</li>
-										<li v-for="g in gifs3" v-if="gifshow==3" @click="dopostmer(g)" v-cloak>
-											<img :src="g.icon+'?v=1'">
-											<span v-text="g.name"></span>
+										<li v-for="(g,i) in gifs3" v-if="gifshow==3" @click="dopostmer(g,$event,i)" :class="divIndex==i?'active':''" v-cloak>
+											<img :src="g.icon">
+											<span>{{g.name}}<em>￥ {{g.price}}E</em></span>
+											<span class="bak" v-if="divIndex==i?show:!show">
+												<img src="img/plus.png" @click="changeNum('1')">
+												<input type="text" v-model="num">
+												<img src="img/pus.png" @click="changeNum('-1')">
+											</span>
+										</li>
+										<li v-for="(g,i) in gifs4" v-if="gifshow==4" @click="dopostmer(g,$event,i)" :class="divIndex==i?'active':''" v-cloak>
+											<img :src="g.icon">
+											<span>{{g.name}}<em>￥ {{g.price}}E</em></span>
+											<span class="bak" v-if="divIndex==i?show:!show">
+												<img src="img/plus.png" @click="changeNum('1')">
+												<input type="text" v-model="num">
+												<img src="img/pus.png" @click="changeNum('-1')">
+											</span>
+										</li>
+										<li v-for="(g,i) in gifs5" v-if="gifshow==5" @click="dopostmer(g,$event,i)" :class="divIndex==i?'active':''" v-cloak>
+											<img :src="g.icon">
+											<span>{{g.name}}<em>￥ {{g.price}}E</em></span>
+											<span class="bak" v-if="divIndex==i?show:!show">
+												<img src="img/plus.png" @click="changeNum('1')">
+												<input type="text" v-model="num">
+												<img src="img/pus.png" @click="changeNum('-1')">
+											</span>
 										</li>
 									</div>
-									<div class="next">
-										<img src="img/next.png" @click="page('1')">
+									<div class="line"></div>
+									<div class="topline">
+										<div style="width:50%;float:left;"></div>
+										<div style="width:50%;float:right;">
+											<span>总计：{{items.price?items.price*num:0}}E</span>
+											<button @click="dogifts">赠送</button>
+										</div>
 									</div>
 								</div>
-								<div class="postmer" v-if="postmer" v-cloak>
-									<div class="imgleft">
-										<img :src="items.icon">
+							</div>
+							<div class="sure" v-if="sure" v-cloak>
+								<div class="suremain">
+									<a href="javascript:;" class="close" @click="closesure"></a>
+									<p>支付</p>
+									<ul>
+										<li v-for="t in guest" v-cloak>
+											<span id="check">
+												<input type="checkbox" class="input_check" :id="'check'+t.id">
+												<label class="label_check" :for="'check'+t.id"></label>
+											</span>
+											<img class="head" :src="t.ico" @click="doimgsure($event,t.id)">
+											<span class="span" v-text="t.name"></span>
+										</li>
+									</ul>
+									<div class="total">
+										<span>￥{{items.price*num}}×{{personnum}}</span>
+										<span>￥{{items.price*num*personnum}}</span>
 									</div>
-									<div class="imgright">
-										<span v-text='items.name'></span>
-										<span v-text="'￥'+items.price+' e'"></span>
-										<span>数量：<img src="img/jian.png" @click="changeNum('-1')"><input type="text" v-model="num"><img src="img/jia.png" @click="changeNum('1')"></span>
-										<span>
-											￥{{items.price*num}} e
-											<button @click="sure=true">赠送</button>
-										</span>
+									<div class="way">
+										<div class="ways">
+											<input type="radio" name="echck" value="wechat" checked class="input_check1" id="checks1" v-model="checkedValue">
+											<label class="label_check1" for="checks1"></label>
+											<img src="img/wechat.png">
+											<span>微信支付</span>
+										</div>
+										<div class="ways">
+											<input type="radio" name="echck" value="alipay" class="input_check2" id="checks2" v-model="checkedValue">
+											<label class="label_check2" for="checks2"></label>
+											<img src="img/alipay.png">
+											<span>支付宝</span>
+											<a>推荐</a>
+										</div>
 									</div>
-								</div>
-								<div class="sure" v-if="sure" v-cloak>
-									<div class="suremain">
-										<img class="close" @click="closesure" src="img/icon_close.png">
-										<p>支付</p>
-										<ul>
-											<li v-for="t in guest" v-cloak>
-												<span id="check">
-													<input type="checkbox" class="input_check" :id="'check'+t.id">
-													<label class="label_check" :for="'check'+t.id"></label>
-												</span>
-												<img class="head" :src="t.ico" @click="doimgsure($event,t.id)">
-												<span class="span" v-text="t.name"></span>
-											</li>
-										</ul>
-										<div class="total">
-											<span>￥{{items.price*num}}×{{personnum}}</span>
-											<span>￥{{items.price*num*personnum}}</span>
-										</div>
-										<div class="way">
-											<div class="ways">
-												<input type="radio" name="echck" value="wechat" checked class="input_check1" id="checks1" v-model="checkedValue">
-												<label class="label_check1" for="checks1"></label>
-												<img src="img/wechat.png">
-												<span>微信支付</span>
-											</div>
-											<div class="ways">
-												<input type="radio" name="echck" value="alipay" class="input_check2" id="checks2" v-model="checkedValue">
-												<label class="label_check2" for="checks2"></label>
-												<img src="img/alipay.png">
-												<span>支付宝</span>
-												<a>推荐</a>
-											</div>
-										</div>
-										<div class="ofsure">
-											<button @click="pay($event)">确认支付</button>
-										</div>
+									<div class="ofsure">
+										<button @click="pay($event)">确认支付</button>
 									</div>
 								</div>
 							</div>
@@ -192,6 +202,12 @@
 							<span class="time abs" v-text="'会议时间：'+haibao.time"></span>
 							<img :src="haibao.code" class="code abs">
 							<span class="link abs">{{haibao.link}}<a href="javascript:;" :data-clipboard-text="haibao.link" id="copy_text" @click="copy">复制</a></span>
+						</div>
+					</div>
+					<div v-if="phoneImg==1" class="phone">
+						<div class="phonecontent">
+							<img src="img/icon_close.png" class="close abs" @click="phoneImg=0">
+							<img :src="phoneItems.code" class="code abs">
 						</div>
 					</div>
 				</div>
@@ -315,10 +331,20 @@ export default {
 			url:'http://demo1.kol110.com/data.php',
 			share:0,
 			shareImg:0,
-			haibao:[]
+			phone:0,
+			phoneImg:0,
+			haibao:[],
+			phoneItems:[],
+			divIndex:-1,
+			show:true,
 		}
 	},
 	methods:{
+		dogifts:function(){
+			var thar = this;
+			thar.zan = false;
+			thar.sure = true;
+		},
 		copy:function(){
 			var thar = this;
 			var clipborad = new Clipboard("#copy_text");
@@ -340,6 +366,28 @@ export default {
 			if(thar.haibao==''){
 				this.getHaibao();
 			}
+		},
+		phoneshow:function(){
+			var thar = this;
+			thar.phoneImg = 1;
+			if(thar.phoneItems==''){
+				this.getPhoneCode();
+			}
+		},
+		getPhoneCode:function(){
+			var thar = this;
+		  	this.$axios({
+			    method:"get",
+			    url:thar.url,
+			    params:{type:'phonecode'}
+			}).
+			then((res)=>{
+				if(res.data.code==200){
+			    	thar.phoneItems = res.data.data;
+				}
+			},(err)=>{
+			    console.log(err);
+			})
 		},
 		getHaibao:function(){
 			var thar = this;
@@ -506,6 +554,36 @@ export default {
 			    console.log(err);
 			})
 		},
+		getGifs4:function(){
+			var thar = this;
+			this.$axios({
+			    method:"get",
+			    url:thar.url,
+			    params:{type:'gifs4'}
+			}).
+			then((res)=>{
+			    if(res.data.code==200){
+			    	thar.gifs4 = res.data.data;
+				}
+			},(err)=>{
+			    console.log(err);
+			})
+		},
+		getGifs5:function(){
+			var thar = this;
+			this.$axios({
+			    method:"get",
+			    url:thar.url,
+			    params:{type:'gifs5'}
+			}).
+			then((res)=>{
+			    if(res.data.code==200){
+			    	thar.gifs5 = res.data.data;
+				}
+			},(err)=>{
+			    console.log(err);
+			})
+		},
 		getEmoticon:function(){
 			var thar = this;
 			this.$axios({
@@ -582,10 +660,10 @@ export default {
 				thar.num = thar.num+i;
 			}
 		},
-		dopostmer:function(o){
+		dopostmer:function(o,e,i){
 			var thar = this;
-			thar.postmer = true;
 			thar.items = o;
+			thar.divIndex=i;
 		},
 		fullscreen:function(){
 			var player = videojs('videomv', {}, function(){})
@@ -701,6 +779,8 @@ export default {
 		this.getGifs1();
 		this.getGifs2();
 		this.getGifs3();
+		this.getGifs4();
+		this.getGifs5();
 		this.getEmoticon();
 		this.getMsg();
 	}
@@ -745,21 +825,9 @@ ul li{list-style-type: none;}
 #main .cent .player .control{width: 100%;background:#fff;}
 #main .cent .player .control .left img{vertical-align: middle;cursor: pointer;margin: 0 10px;width: 25px;}
 #main .cent .player .control .left{float: left;}
-#main .cent .player .control .right{float: right;position: relative;}
-#main .cent .player .control .right .proms{width: 300px;height: 220px;background: #292b38;position: absolute;bottom: 60px;border-radius: 10px;left: -125px;}
-#main .cent .player .control .right .proms:before {content: "";position: absolute;width: 0;height: 0;border: 7px solid transparent;border-top-color: #32769b;left: 50%;margin-left: -4px;bottom: -14px;}
-#main .cent .player .control .right .promy{height: 7px;width: 100%;background: #32769b;position: absolute;bottom: 0;border-bottom-left-radius: 10px;border-bottom-right-radius: 10px;}
-#main .cent .player .control .right .proms .sq{font-size: 22px;color: #fff;text-align: center;height: 25px;margin-top: -10px;}
-#main .cent .player .control .right .proms .tct{width: 80%;margin: 0 auto;margin-top: 15px;}
-#main .cent .player .control .right .proms .tct img{width: 25px;vertical-align: sub;}
-#main .cent .player .control .right .proms .tct span{color: #16d8f4;padding-left: 20px;}
-#main .cent .player .control .right .proms .arts{width: 80%;margin: 0 auto;margin-top: -15px;color: #fff;line-height: 21px;font-size: 14px;}
-#main .cent .player .control .right .proms .an{width: 80%;margin: 0 auto;margin-top: -5px;}
-#main .cent .player .control .right .proms .an img{width: 38px;vertical-align:middle;}
-#main .cent .player .control .right .proms .an span{color: #fff;font-size: 16px;}
-#main .cent .player .control .right .proms .an .jt{float: left;width: 50%;margin-bottom: 10px;cursor: pointer;}
-#main .cent .player .control .right .proms .an .hl{float: right;width: 50%;text-align: right;margin-bottom: 10px;cursor: pointer;}
+#main .cent .player .control .right{float: right;}
 #main .cent .player .control .right .img{width: 45px;margin: 0 10px;vertical-align: middle;cursor: pointer;}
+#main .cent .player .control .right .img:nth-child(2){width: 60px;}
 #main .cent .player .control .right .span{margin-right: 10px;font-size: 15px;}
 .control input[type="checkbox"] {
   -webkit-appearance: none;
@@ -792,8 +860,8 @@ ul li{list-style-type: none;}
 }
 .control input[type="checkbox"]:checked + label.label {background-color: #e0e0e0;}
 .control input[type="checkbox"]:checked + label.label:after {left: 29px;}
-.chat .ad{height: 278px;background:blue;width: 100%;}
-.chat .im{overflow: auto;height: 330px;padding: 20px 10px 15px 15px;font-size: 14px;}
+.chat .ad{background:blue;width: 100%;}
+.chat .im{overflow: auto;}
 .chat .im .left{clear: both;margin-bottom: 5px;height: auto;display: inline-block;}
 .chat .im .right{clear: both;margin-bottom: 5px;height: auto;display: inline-block;float: right}
 .chat .im .left img{width: 26px;float: left;margin-right: 20px;}
@@ -827,23 +895,34 @@ ul li{list-style-type: none;}
 .cont .ad .img,.cont .ads .img{width: 100%;margin-top: 60px;margin-top: 145px;opacity: 0.7;}
 .cont .ad .close,.cont .ads .close{position: absolute;right: 5px;top: 155px;width: 25px;cursor: pointer;}
 .cont .mains .art{padding: 30px 80px;}
-.cont .mains .art .act span{font-size:16px;width: 33.33%;background: #dfebf1;display: block;float: left;height: 40px;text-align: center;line-height: 40px;cursor: pointer;}
+.cont .mains .art .act span{width: 33.33%;background: #dfebf1;display: block;float: left;text-align: center;cursor: pointer;}
 .cont .mains .art .act span.active{background: #9fe3ff;}
 .cont .mains .art img{width:100%;vertical-align: bottom;}
 .p30{clear:both;padding-top: 15px;}
-.gift{position: absolute;width: 390px;height: auto;background: #292b38;border-radius: 10px;left: -190px;bottom: 75px;padding:0 10px 10px 10px;opacity: 0.97;}
-.gift .giftit{width: 100%;height: 30px;line-height: 30px;text-align: center;}
-.gift .giftit span{width: 33.33%;display: block;float: left;cursor: pointer;color: #fff;}
+.gift{position: absolute;width: 500px;height: 410px;background: #fff;border-radius: 10px;left: 45%;bottom: 90px;padding:0 10px 10px 10px;opacity: 0.97;}
+.gift .giftit{width: 100%;height: 40px;line-height: 40px;text-align: center;overflow-x: scroll;overflow: auto;white-space: nowrap;overflow-y:hidden;}
+.gift .giftit span{width: 20%;float: left;cursor: pointer;color: #858585;}
 .gift .giftit span.active{color: #29abe2;}
 .gift .pre{float: left;width: 10%;margin-top: 20%;}
 .gift .next{float: right;width: 10%;margin-top: 20%;}
 .gift .pre img{float: left;cursor: pointer;}
 .gift .next img{float: right;cursor: pointer;}
-.gift .gifmain{margin: 0 auto;width: 80%;float: left;height: 180px;}
-.gift .gifmain li{width: 104px;height: 90px;float:left;list-style-type: none;position: relative;cursor: pointer;background: #211931;}
-.gift .gifmain li:hover{background: #2b194b;}
-.gift .gifmain li img{width: 100%;height: 92px;}
-.gift .gifmain li span{position: absolute;bottom: -27px;font-size: 12px;left: 33px;}
+.gift .gifmain{margin: 0 auto;width: 80%;height: auto;}
+.gift .gifmain li{width: 32%;height: 150px;float:left;list-style-type: none;cursor: pointer;line-height: 20px;}
+.gift .gifmain li.active{border:1px solid #ff0468;height: 150px;border-bottom: none;}
+.gift .gifmain li img{width: 100%;height: 90px;}
+.gift .gifmain li span{font-size: 12px;width: 100%;line-height: 30px;text-align: center;display: block;}
+.gift .gifmain li span em{color: #29abe2;font-style:normal}
+.gift .gifmain li span.bak{background:#ff0468;width: 100%;height: 30px;display: block;}
+.gift .gifmain li span.bak img{width: 20px;height: auto;vertical-align: middle;margin-top: 5px;}
+.gift .gifmain li span.bak img:nth-child(1){float: left;padding-left: 15px;}
+.gift .gifmain li span.bak img:nth-child(3){float: right;padding-right: 15px;}
+.gift .gifmain li span.bak input{border:none;width: 30px;text-align: center;background:none;outline: none;margin-left: 10px;color: #fff;line-height: 30px;}
+.gift .gifmain li:nth-child(4){clear: both;}
+.gift .line{height: 10px;clear: both;}
+.gift .topline{clear:both;width: 100%;border-top: 3px solid #ccc;}
+.gift .topline span{font-size: 20px;}
+.gift .topline button{border:none;outline: none;background:#ff0468;color: #fff;padding: 5px 15px;border-radius: 5px;margin-left: 25px;cursor: pointer;}
 .blue {border-radius: 100px;background: #e6ff75;color: #fff;}
 .green {border-radius: 100px;background: #75ffcd;color: #fff;}
 .red {border-radius: 100px;background: #e68fba;color: #fff;}
@@ -867,41 +946,53 @@ ul li{list-style-type: none;}
 .postmer .imgright img:nth-child(1){margin-left: 5px;}
 .postmer .imgright input{width: 15px;margin:0 5px;border:none;outline: none;background: none;color: #fff;text-align: center;}
 .postmer .imgright span button{border:none;background: #211931;color: #fff;padding: 3px 10px;border-radius: 5px;float: right;margin-top: 4px;outline: none;cursor: pointer;}
-.sure{position: absolute;background: #292b38;width: 300px;height: 500px;top: -280px;left: 420px;border-radius: 15px;}
+.sure{background: url(/img/pay.png) no-repeat;position: absolute;background-size: 100%;}
 .sure .suremain{position: relative;width: 100%;height: 100%;}
 .sure .suremain .close{position: absolute;right: 10px;top: 10px;cursor:pointer;}
-.sure .suremain p{color: #fff;text-align: center;font-size: 18px;letter-spacing: 6px;height: 50px;line-height: 50px;}
-.sure .suremain ul{padding:0 10px;height: 320px;overflow: auto;}
+.sure .suremain p{color: #fff;text-align: center;font-size: 22px;letter-spacing: 6px;height: 50px;line-height: 50px;}
+.sure .suremain ul{padding:0 10px;height: 320px;overflow: auto;margin-top: 20px;}
 .sure .suremain ul li{width: 33.33%;text-align: center;background: none;height: auto;float: left;line-height: 50px;position: relative;}
 .sure .suremain ul li:hover{background: none;}
 .sure .suremain ul li img.head{width: 40px;height: auto;margin:0 auto;display: block;cursor: pointer;}
-.sure .suremain ul li span.span{margin-top: -10px;display: block;color: #fff;font-size: 12px ! important;margin-right: 0 ! important;}
+.sure .suremain ul li span.span{margin-top: -10px;display: block;color: #000;font-size: 12px ! important;margin-right: 0 ! important;white-space: nowrap;}
 #check {margin: 20px auto;}
 #check .input_check {position: absolute;width: 20px;height: 20px;visibility: hidden;background: #E92333;}
 #check span {position: relative;}
-#check .input_check+label.label_check {display: inline-block;width: 20px;height: 20px;background: url('/img/sure.png') no-repeat;background-position: -31px -3px;position: absolute;top: 0;left: 28px;}
+#check .input_check+label.label_check {display: inline-block;width: 20px;height: 20px;background: url('/img/sure.png') no-repeat;background-position: -31px -3px;position: absolute;top: 0;right: 28px;}
 #check .input_check:checked+label.label_check {background-position: -2px 0px;}
-.sure .suremain .total{padding: 0px 40px;margin-top: -20px;height: auto;}
+.sure .suremain .total{padding: 0px 40px;margin-top: -10px;height: auto;}
 .sure .suremain .total span{width: 50%;}
 .sure .suremain .total span:nth-child(1){color: #969696;font-size: 25px;float: left;}
 .sure .suremain .total span:nth-child(2){color: #bb0e57;font-size: 35px;float: right;text-align: right;}
-.way{clear: both;padding:0 10px;margin-top: -30px;display: inline-block;width: 92%;}
+.suremain a.close{position: absolute;right: 0;top: 0;width: 60px;height: 60px;}
+.way{clear: both;padding:0 10px;width: 92%;}
 .way .ways:nth-child(1){width: 45%;float: left;} 
 .way .ways:nth-child(2){width: 55%;float: left;} 
 .way .ways:nth-child(2) img{margin-left: 30px;}
 .way .ways img{vertical-align: middle;margin:0 5px;margin-left: 30px;}
 .way .input_check1,.way .input_check2 {position: absolute;width: 15px;height: 15px;visibility: hidden;background: #E92333;}
-.way .input_check1+label.label_check1{display: inline-block;width: 15px;height: 15px;background: url('/img/sure.png') no-repeat;background-position: -40px -3px;position: absolute;bottom: 57px;left: 15px;border:1px solid #ff0267;border-radius: 50%;cursor: pointer;}
-.way .input_check2+label.label_check2 {display: inline-block;width: 15px;height: 15px;background: url('/img/sure.png') no-repeat;background-position: -40px -3px;position: absolute;bottom: 57px;left: 140px;border:1px solid #ff0267;border-radius: 50%;cursor: pointer;}
+.way .input_check1+label.label_check1{display: inline-block;width: 20px;height: 20px;background: url('/img/sure1.png') no-repeat;background-position: -40px -3px;position: absolute;bottom: 87px;left: 15px;border:1px solid #ff0267;border-radius: 50%;cursor: pointer;}
+.way .input_check2+label.label_check2 {display: inline-block;width: 20px;height: 20px;background: url('/img/sure1.png') no-repeat;background-position: -40px -3px;position: absolute;bottom: 87px;left: 165px;border:1px solid #ff0267;border-radius: 50%;cursor: pointer;}
 .way .input_check1:checked+label.label_check1,.way .input_check2:checked+label.label_check2 {background-position: 0px 0px;}
-.way .ways span{color: #fff;font-size: 14px;}
+.way .ways span{color: #4a4a4a;font-size: 14px;}
 .way .ways a{color: #fff;background: #00aaee;font-size: 12px;padding: 0px 7px;border-radius: 10px;text-align: right;margin-left: 5px;}
-.ofsure{clear:both;height: 40px;margin-top: -45px;}
-.ofsure button{clear:both;width: 80%;padding:0 10px;background: #ff0267;color: #fff;height: 30px;line-height: 30px;border:none;outline: none;border-radius: 5px;margin: 0 auto;display: block;cursor: pointer;}
+.ofsure{clear:both;height: 40px;}
+.ofsure button{clear:both;width: 80%;padding:0 10px;background: #08baff;color: #fff;height: 40px;line-height: 40px;border:none;outline: none;border-radius: 5px;margin: 0 auto;display: block;cursor: pointer;}
 .share{background: url(/img/haibao.png) no-repeat;position: absolute;left: 0;background-size: 100%;}
 .sharecontent{position: relative;width: 100%;height: 100%;z-index: 1;}
 .abs{position: absolute;}
 .sharecontent span{color: #fff;}
 .sharecontent .link a{color: #239fff;}
 .sharecontent .close{top: 5px;right: 5px;cursor: pointer;}
+.phone{background: url(/img/sharem.png) no-repeat;position: absolute;background-size: 100%;}
+.phonecontent{position: relative;width: 100%;height: 100%;z-index: 1;}
+.phone .close{top: 0px;right: 0px;cursor: pointer;z-index: 1;width: 20px;}
+.phone .code{width: 70px;border-radius: 10px;}
+.phonecontent:before{content: "";position: absolute;width: 0;height: 0;border: 15px solid transparent;border-top-color: #0076d0;left: 50%;margin-left: -12px;bottom: -30px;}
+.proms{position: absolute;background: url(/img/hudong.png) no-repeat;background-size: 100%;}
+.proms p{width: 100%;text-align: center;color: #fff;height: 65px;}
+.proms .form input{height: 40px;line-height: 40px;border:none;border-bottom: 1px solid #9fe3ff;outline: none;}
+.proms .form textarea{margin-top:20px;height: 60px;line-height: 40px;border:none;border-bottom: 1px solid #9fe3ff;outline: none;}
+.proms button{clear:both;background:#08baff;height: 40px;line-height: 40px;color: #fff;text-align: center;border:none;margin: 0 auto;width: 70%;border-radius: 5px;margin-top: 35px;display: block;cursor: pointer;}
+.proms a{position: absolute;right: 0;top: 0;width: 70px;height: 70px;}
 </style>
